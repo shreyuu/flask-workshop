@@ -1,1 +1,4 @@
 .venv
+.DS_Store
+project2/credentials.json
+project2/.env
