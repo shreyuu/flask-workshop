@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./app/static/css/tailwind.css -o ./app/static/css/styles.css",
+    "watch:css": "npx tailwindcss -i ./app/static/css/tailwind.css -o ./app/static/css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.10",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0"
+  }
+}
