@@ -1,4 +1,4 @@
 .venv
 .DS_Store
-project2/credentials.json
-project2/.env
+auth-system-verification-through-mail/credentials.json
+auth-system-verification-through-mail/.env
