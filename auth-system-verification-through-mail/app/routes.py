@@ -46,7 +46,7 @@ def register():
         flash('A verification email has been sent to your email address.', 'info')
         return redirect(url_for('main.login'))
 
-    return render_template('register.html')
+    return render_template('html/register.html')
 
 @main_routes.route('/verify/<token>')
 def verify_email(token):
@@ -65,7 +65,7 @@ def verify_email(token):
 
 @main_routes.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('html/index.html')
 
 @main_routes.route('/login', methods=['GET', 'POST'])
 def login():
@@ -81,8 +81,10 @@ def login():
         else:
             flash('Invalid email or password.', 'danger')
 
-    return render_template('login.html')
+    return render_template('html/login.html')
 
+
+#dubug
 @main_routes.route('/test-email')
 def test_email():
     msg = Message('Test Email', sender=os.getenv('MAIL_USERNAME'), recipients=['mshreyash.work@gmail.com'])
