@@ -2,3 +2,4 @@
 .DS_Store
 auth-system-verification-through-mail/credentials.json
 auth-system-verification-through-mail/.env
+auth-system-verification-through-mail/node_modules
