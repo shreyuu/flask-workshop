@@ -89,6 +89,8 @@ def verify_email(token):
         flash('The confirmation link is invalid or has expired.', 'danger')
         return redirect(url_for('main.register'))
 
+from flask import request
+
 @main_routes.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -102,11 +104,14 @@ def login():
                 return redirect(url_for('main.login'))
 
             login_user(user)
-            send_login_notification_email(user)
+            # Get browser information
+            browser_info = request.user_agent.string
+            send_login_notification_email(user, browser_info)  # Send login notification with browser info
+            
             flash('Login successful!', 'success')
-            return redirect(url_for('main.home'))
-
-        flash('Invalid email or password.', 'danger')
+            return redirect(url_for('main.home')) 
+        else:
+            flash('Invalid email or password.', 'danger')
 
     return render_template('html/login.html')
 
@@ -134,16 +139,16 @@ def send_account_verified_email(user):
     except Exception as e:
         print(f'Error sending email: {e}')
 
-def send_login_notification_email(user):
-    browser = request.user_agent.browser
+def send_login_notification_email(user, browser_info):
     msg = Message('Login Notification', sender=os.getenv('MAIL_USERNAME'), recipients=[user.email])
-    msg.body = f'Your account was logged in on {datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")}. Browser: {browser}.'
+    msg.body = f'Your account was logged in on {datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")}. Browser: {browser_info}.'
     
     try:
         mail.send(msg)
         print('Login notification email sent successfully.')
     except Exception as e:
         print(f'Error sending email: {e}')
+
 
 @main_routes.route('/test-email')
 def test_email():

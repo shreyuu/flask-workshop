@@ -43,13 +43,13 @@ def send_account_verified_email(user):
         print(f'Error sending email: {e}')
 
 # Function to send login notification email
-def send_login_notification_email(user, browser):
-    login_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+def send_login_notification_email(user, browser_info):
+    login_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     msg = Message('Login Notification', sender=os.getenv('MAIL_USERNAME'), recipients=[user.email])
-    msg.body = f'Hello {user.username},\n\nYour account was logged in on {login_time} using the {browser} browser.\n\nThank you!'
-    
+    msg.body = f'Hello {user.username},\n\nYour account was logged in on {login_time}.\nBrowser: {browser_info}.\n\nThank you for using our service!'
+
     try:
         mail.send(msg)
         print('Login notification email sent successfully.')
     except Exception as e:
-        print(f'Error sending email: {e}')
+        print(f'Error sending login notification email: {e}')
