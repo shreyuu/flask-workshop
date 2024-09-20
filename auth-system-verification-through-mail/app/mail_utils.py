@@ -31,11 +31,9 @@ def send_verification_email(user):
     except Exception as e:
         print(f'Error sending OTP email: {e}')
         
-        
 def send_account_verified_email(user):
-    print(f"Preparing to send verification email to {user.email}")
-    msg = Message('Account Verified', sender=os.getenv('MAIL_USERNAME'), recipients=[user.email])
     verification_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    msg = Message('Account Verified', sender=os.getenv('MAIL_USERNAME'), recipients=[user.email])
     msg.body = f'Hello {user.username},\n\nYour account has been successfully verified on {verification_time}.\n\nThank you for registering!'
     
     try:
@@ -43,3 +41,15 @@ def send_account_verified_email(user):
         print('Verification email sent successfully.')
     except Exception as e:
         print(f'Error sending email: {e}')
+
+# Function to send login notification email
+def send_login_notification_email(user, browser_info):
+    login_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    msg = Message('Login Notification', sender=os.getenv('MAIL_USERNAME'), recipients=[user.email])
+    msg.body = f'Hello {user.username},\n\nYour account was logged in on {login_time}.\nBrowser: {browser_info}.\n\nThank you for using our service!'
+
+    try:
+        mail.send(msg)
+        print('Login notification email sent successfully.')
+    except Exception as e:
+        print(f'Error sending login notification email: {e}')
