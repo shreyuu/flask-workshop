@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homeapge</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
-<body>
-    <h1>homeapge</h1>
+<body class="bg-blue-100 flex items-center justify-center min-h-screen">
+    <div class="container text-center p-6 bg-white rounded-lg shadow-lg max-w-lg">
+        <h1 class="text-3xl font-bold mb-4">Welcome to the Homepage</h1>
+        <p class="text-gray-700">This is your app's homepage. Use the navigation to explore other pages.</p>
+        <a href="{{ url_for('main.login') }}" class="mt-4 inline-block px-6 py-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600">Login</a>
+        <a href="{{ url_for('main.register') }}" class="mt-4 inline-block px-6 py-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600">Register</a>
+    </div>
 </body>
 </html>
