@@ -3,3 +3,6 @@
 auth-system-verification-through-mail/credentials.json
 auth-system-verification-through-mail/.env
 auth-system-verification-through-mail/node_modules
+firebase-conn/serviceAccountKey.json
+firebase-conn/.env
+registration-form-auth-login/.env
