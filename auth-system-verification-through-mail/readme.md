@@ -6,9 +6,9 @@ This is a Flask-based authentication system that includes functionalities for us
 
 ## Features
 
-- User registration with email verification
+- User registration with email verification (OTP)
 - User login with password hashing
-- Email sending for account verification
+- Email notifications for account verification and login events
 - Google OAuth integration for login
 - Email testing route
 
@@ -69,17 +69,17 @@ This is a Flask-based authentication system that includes functionalities for us
 
 ## Usage
 
-- **Register**: Access the registration page at `/register` to create a new account.
-- **Login**: Access the login page at `/login` to authenticate with your credentials.
-- **Verify Email**: After registration, a verification email will be sent to your email address. Click the link in the email to activate your account.
+- **Register**: Access the registration page at `/register` to create a new account. An email will be sent with a verification OTP.
+- **Login**: Access the login page at `/login` to authenticate with your credentials. A notification email will be sent upon successful login.
+- **Verify Email**: After registration, check your email for the verification OTP. Enter the OTP to activate your account.
 - **Google OAuth Login**: Use Google OAuth to log in via `/login` (Google authentication) and handle the callback at `/oauth2callback`.
 
 ## Future Enhancements
 
 The following functionalities are planned for future updates:
 
-- **OTP (One-Time Password) Validation**: Add OTP-based validation to enhance security during the login and registration processes.
-- **Email Approval**: Implement additional email approval steps to further secure account verification and user authentication.
+- **Improved Security**: Enhance security during the login and registration processes with additional verification methods.
+- **User Profile Management**: Implement user profile management features to allow users to update their information.
 
 ## `.gitignore`
 
@@ -101,3 +101,6 @@ Feel free to open issues and submit pull requests for improvements or bug fixes.
 ## Contact
 
 For any questions or comments, please reach out to [shreyashmeshram0031@gmail.com](mailto:shreyashmeshram0031@gmail.com).
+```
+
+Feel free to modify any part of the `README.md` to better fit your project's needs!

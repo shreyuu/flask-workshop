@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-8">
+        <header class="bg-white p-6 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold text-center">Welcome to Your Dashboard!</h1>
+            <p class="mt-2 text-center">User ID: {{ user_info.ID }}</p>
+        </header>
+        
+        <div class="mt-6 bg-white p-4 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-center">Your Details</h2>
+            <ul class="mt-4">
+                <li class="py-2"><strong>Name:</strong> {{ user_info.name }}</li>
+                <li class="py-2"><strong>Gender:</strong> {{ user_info.gender }}</li>
+                <li class="py-2"><strong>Branch:</strong> {{ user_info.branch }}</li>
+                <li class="py-2"><strong>Phone:</strong> {{ user_info.phone }}</li>
+                <li class="py-2"><strong>Email:</strong> {{ user_info.email }}</li>
+            </ul>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="/logout" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
