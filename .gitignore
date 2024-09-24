@@ -6,3 +6,4 @@ auth-system-verification-through-mail/node_modules
 firebase-conn/serviceAccountKey.json
 firebase-conn/.env
 registration-form-auth-login/.env
+Todo-app/.env
